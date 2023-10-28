@@ -1,42 +1,24 @@
 #[macro_use]
 extern crate rocket;
-use std::time::{SystemTime, UNIX_EPOCH};
-use rocket::data::{FromData, Outcome};
-use rocket::{Data, Request};
-use rocket::response::content::RawJson;
-use rocket_contrib::json::Json;
-use serde_derive::Deserialize;
 
+use std::time::{ SystemTime, UNIX_EPOCH };
+use rocket::serde::json::Json;
+use serde::{Deserialize, Serialize};
+
+#[derive(Deserialize)]
 struct ClassInfo {
     name: String,
     id: u32,
     description: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct Schedule {
-    classes: Vec<i32>,
-}
-// #[rocket::async_trait]
-// impl FromData for Schedule {
-//     type Error = ();
-//
-//     async fn from_data(req: &'r Request<'_>, data: Data<'r>) -> Outcome<'r, Self> {
-//         todo!()
-//     }
-// }
-
-// Database CRUD paths
-#[post("/data", data = "<input>")]
-fn data_post(input: String) -> Option<String> {
-    Some("Data posted: ".to_owned() + &*input)
+    classes: u8,
+    valid: bool,
 }
 
-
-#[get("/data/<class_name>")]
-fn data_get(class_name: String) -> Option<String> {
-    Some("Requested data for: ".to_owned() + &*class_name)
-}
+// Example API paths
 
 #[put("/data/<class_name>")]
 fn data_put(class_name: String) -> Option<String> {
@@ -53,7 +35,7 @@ fn data_delete(class_name: String) -> Option<String> {
     Some("Deleting class: ".to_owned() + &*class_name)
 }
 
-#[post("/validate", data="<schedule>")]
+#[post("/validate", format="json", data="<schedule>")]
 fn validate_schedule(schedule: Json<Schedule>) -> Option<String> {
     Some("true".to_string())
 }
@@ -61,11 +43,6 @@ fn validate_schedule(schedule: Json<Schedule>) -> Option<String> {
 #[get("/")]
 fn index() -> &'static str {
     "Hello, world!"
-}
-
-#[get("/goodbye")]
-fn goodbye() -> &'static str {
-    "Goodbye World!"
 }
 
 #[get("/time/now")]
@@ -79,7 +56,9 @@ fn get_time() -> Option<String> {
     )
 }
 
+
+//Launching the API and setting the routes being used
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, goodbye, get_time, validate_schedule, data_delete, data_get, data_patch, data_post, data_put])
+    rocket::build().mount("/", routes![index, get_time, validate_schedule, data_delete, data_patch, data_post, data_put])
 }
