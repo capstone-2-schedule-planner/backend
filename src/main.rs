@@ -20,9 +20,41 @@ struct Schedule {
 
 //Real API paths
 #[get("/get_search_results/<input_string>")]
-fn get_search_results(input_string: String) -> Option<String> {
+fn get_search_results(input_string: String) -> Json<String> {
 
-    return Some("test".to_string())
+    // TODO: Connect to database
+
+    // TODO: Get list of all class names and numbers
+
+    // TODO: Search for the classes whose name or number includes the input string
+
+    // TODO: Return filtered list like { class_id: class_name }
+
+    return Json(input_string)
+}
+
+#[get("/get_class_information/<class_id>")]
+fn get_class_information(class_id: u32) -> Json<String> {
+
+    // TODO: Connect to database
+
+    // TODO: Get all information relating to given class_id
+
+    // TODO: Return information as JSON
+
+    return Json(class_id.to_string())
+}
+
+#[post("/validate", format="application/json", data="<schedule>")]
+fn validate_schedule(schedule: Json<Schedule>) -> Option<String> {
+
+    // TODO: Connect to database
+
+    // TODO: For each class in the schedule, ensure that all prereqs were taken before it
+
+    // TODO: Return the result
+
+    Some("true".to_string())
 }
 
 
@@ -41,11 +73,6 @@ fn data_patch(class_number: i32) -> Option<String> {
 #[delete("/data/<class_name>")]
 fn data_delete(class_name: String) -> Option<String> {
     Some("Deleting class: ".to_owned() + &*class_name)
-}
-
-#[post("/validate", format="json", data="<schedule>")]
-fn validate_schedule(schedule: Json<Schedule>) -> Option<String> {
-    Some("true".to_string())
 }
 
 #[get("/")]
@@ -68,5 +95,5 @@ fn get_time() -> Option<String> {
 //Launching the API and setting the routes being used
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, get_time, validate_schedule, data_delete, data_patch, data_put, get_search_results])
+    rocket::build().mount("/", routes![index, get_time, data_delete, data_patch, data_put, validate_schedule, get_search_results, get_class_information])
 }
