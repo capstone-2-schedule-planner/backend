@@ -18,6 +18,14 @@ struct Schedule {
     valid: bool,
 }
 
+//Real API paths
+#[get("/get_search_results/<input_string>")]
+fn get_search_results(input_string: String) -> Option<String> {
+
+    return Some("test".to_string())
+}
+
+
 // Example API paths
 
 #[put("/data/<class_name>")]
@@ -60,5 +68,5 @@ fn get_time() -> Option<String> {
 //Launching the API and setting the routes being used
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, get_time, validate_schedule, data_delete, data_patch, data_post, data_put])
+    rocket::build().mount("/", routes![index, get_time, validate_schedule, data_delete, data_patch, data_put, get_search_results])
 }
