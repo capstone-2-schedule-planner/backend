@@ -4,8 +4,18 @@ extern crate rocket;
 use rocket::serde::json::Json;
 use serde::{Deserialize, Serialize};
 use std::time::{SystemTime, UNIX_EPOCH};
+use surrealdb::engine::remote::ws::Ws;
+use surrealdb::Surreal;
 
 //Data Structs
+
+#[derive(Serialize, Deserialize)]
+struct SearchResult {
+    id: u32,
+    name: String,
+    subject: String,
+    catalog_num: u32,
+}
 
 #[derive(Serialize, Deserialize)]
 struct ClassInfo {
@@ -44,31 +54,42 @@ struct ReqGroup {
 //Real API paths
 
 #[get("/get_search_results/<input_string>")]
-fn get_search_results(input_string: String) -> Json<Vec<ClassInfo>> {
-    // TODO: Connect to database
+async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
+    // TODO: Get correct IP
+    let db = Surreal::new::<Ws>("127.0.0.1:4321").await.unwrap();
 
-    // TODO: Get list of all class names and numbers
+    let sql = "\
+        SELECT id, name, subject, catalog_num \
+        FROM classes \
+        WHERE (class_name CONTAINS search_string) OR (catalog_num CONTAINS search_string)\
+    ";
+    let mut response = db
+        .query(sql)
+        .bind(("search_string", input_string))
+        .await
+        .unwrap();
+    let classes: Vec<SearchResult> = response.take(1).unwrap();
 
-    // TODO: Search for the classes whose name or number includes the input string
-
-    // TODO: Return filtered list like { class_id: class_name }
-
-    todo!()
+    Ok(Json(classes))
 }
 
 #[get("/get_class_information/<class_id>")]
-fn get_class_information(class_id: u32) -> Json<ClassInfo> {
-    // TODO: Connect to database
+async fn get_class_information(class_id: u32) -> Result<Json<ClassInfo>, &'static str> {
+    // TODO: Get correct IP
+    let db = Surreal::new::<Ws>("127.0.0.1:4321").await.unwrap();
 
-    // TODO: Get all information relating to given class_id
+    let sql = "\
+        SELECT * \
+        FROM classes:id\
+    ";
+    let mut response = db.query(sql).bind(("id", class_id)).await.unwrap();
+    let class: Option<ClassInfo> = response.take(0).unwrap();
 
-    // TODO: Return information as JSON
-
-    todo!()
+    Ok(Json(class.unwrap()))
 }
 
 #[post("/validate", format = "application/json", data = "<schedule>")]
-fn validate_schedule(schedule: Json<Schedule>) -> Json<bool> {
+async fn validate_schedule(schedule: Json<Schedule>) -> Result<Json<bool>, &'static str> {
     // TODO: Connect to database
 
     // TODO: For each class in the schedule, ensure that all prereqs were taken before it
