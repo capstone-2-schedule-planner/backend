@@ -1,23 +1,46 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket::serde::json::Json;
+use std::borrow::Cow;
+use rocket::serde::json::{Json, json};
 use serde::{Deserialize, Serialize};
 use std::time::{SystemTime, UNIX_EPOCH};
+use rocket::http::ext::IntoCollection;
+use rocket::http::private::SmallVec;
 use surrealdb::engine::remote::ws::Ws;
+use surrealdb::opt::auth::Root;
+use surrealdb::sql::{Number, Strand};
 use surrealdb::Surreal;
+use surrealdb::{
+    sql::{self, Data},
+    sql::{Thing, Value},
+};
+use surrealdb::dbs::{ Session, Response };
+use surrealdb::kvs::Datastore;
 
 //Data Structs
 
-#[derive(Serialize, Deserialize)]
-struct SearchResult {
-    id: u32,
-    name: String,
-    subject: String,
-    catalog_num: u32,
+#[derive(Serialize)]
+struct Credentials<'a> {
+    email: &'a str,
+    pass: &'a str,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Deserialize, Serialize)]
+struct Id {
+    tb: String,
+    id: u32,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct SearchResult {
+    //id: Id,
+    title: String,
+    // subject: String,
+    // catalog: u32,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 struct ClassInfo {
     id: u32,
     name: String,
@@ -55,35 +78,41 @@ struct ReqGroup {
 
 #[get("/get_search_results/<input_string>")]
 async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
-    // TODO: Get correct IP
-    let db = Surreal::new::<Ws>("127.0.0.1:4321").await.unwrap();
+    let db = Surreal::new::<Ws>("127.0.0.1:8001").await.unwrap();
+    db.use_ns("test").use_db("test").await.unwrap();
+    db.signin(Root {
+        username: "root",
+        password: "root",
+    }).await.unwrap();
 
-    let sql = "\
-        SELECT id, name, subject, catalog_num \
-        FROM classes \
-        WHERE (class_name CONTAINS search_string) OR (catalog_num CONTAINS search_string)\
-    ";
+    let sql = format!("SELECT title FROM course WHERE (title CONTAINS \"{}\") OR (catalog CONTAINS \"{}\")", input_string, input_string);
+
     let mut response = db
         .query(sql)
-        .bind(("search_string", input_string))
         .await
         .unwrap();
-    let classes: Vec<SearchResult> = response.take(1).unwrap();
+    println!("{:?}", response);
 
-    Ok(Json(classes))
+    let classes: Option<SearchResult> = response.take(0).unwrap();
+    println!("{:?}", classes);
+
+    Ok(Json(vec!(classes.unwrap())))
+    //Ok(Json(classes))
 }
 
 #[get("/get_class_information/<class_id>")]
 async fn get_class_information(class_id: u32) -> Result<Json<ClassInfo>, &'static str> {
-    // TODO: Get correct IP
-    let db = Surreal::new::<Ws>("127.0.0.1:4321").await.unwrap();
+    let db = Surreal::new::<Ws>("127.0.0.1:8001").await.unwrap();
+    db.use_ns("test").use_db("test").await.unwrap();
 
     let sql = "\
         SELECT * \
-        FROM classes:id\
+        FROM id\
     ";
     let mut response = db.query(sql).bind(("id", class_id)).await.unwrap();
+    println!("{:?}", response);
     let class: Option<ClassInfo> = response.take(0).unwrap();
+    println!("{:?}", class);
 
     Ok(Json(class.unwrap()))
 }
@@ -101,7 +130,7 @@ async fn validate_schedule(schedule: Json<Schedule>) -> Result<Json<bool>, &'sta
 
 // Example API paths
 
-#[put("/data/<class_name>")]
+#[put("/data/<class_name>")] 
 fn data_put(class_name: String) -> Option<String> {
     Some("Updating entire record for: ".to_owned() + &*class_name)
 }
