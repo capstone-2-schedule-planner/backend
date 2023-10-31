@@ -2,11 +2,14 @@
 extern crate rocket;
 
 use std::borrow::Cow;
+use std::fmt::Debug;
 use rocket::serde::json::{Json, json};
 use serde::{Deserialize, Serialize};
 use std::time::{SystemTime, UNIX_EPOCH};
+use rocket::form::validate::Contains;
 use rocket::http::ext::IntoCollection;
 use rocket::http::private::SmallVec;
+use serde::de::DeserializeOwned;
 use surrealdb::engine::remote::ws::Ws;
 use surrealdb::opt::auth::Root;
 use surrealdb::sql::{Number, Strand};
@@ -16,6 +19,7 @@ use surrealdb::{
     sql::{Thing, Value},
 };
 use surrealdb::dbs::{ Session, Response };
+use surrealdb::err::Error;
 use surrealdb::kvs::Datastore;
 
 //Data Structs
@@ -29,26 +33,27 @@ struct Credentials<'a> {
 #[derive(Debug, Deserialize, Serialize)]
 struct Id {
     tb: String,
-    id: u32,
+    id: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 struct SearchResult {
-    //id: Id,
+    //tb: String,
+    //id: String,
     title: String,
-    // subject: String,
-    // catalog: u32,
+    subject: String,
+    catalog: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 struct ClassInfo {
-    id: u32,
-    name: String,
+    //id: String,
+    title: String,
     min_units: u32,
     max_units: u32,
     subject: String,
-    catalog_num: u32,
-    req_group: u32,
+    catalog: String,
+    req_group: Option<u32>,
     description: String,
 }
 
@@ -74,10 +79,9 @@ struct ReqGroup {
     union: bool,
 }
 
-//Real API paths
+//Helper Functions
 
-#[get("/get_search_results/<input_string>")]
-async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
+async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: Debug {
     let db = Surreal::new::<Ws>("127.0.0.1:8001").await.unwrap();
     db.use_ns("test").use_db("test").await.unwrap();
     db.signin(Root {
@@ -85,36 +89,58 @@ async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResul
         password: "root",
     }).await.unwrap();
 
-    let sql = format!("SELECT title FROM course WHERE (title CONTAINS \"{}\") OR (catalog CONTAINS \"{}\")", input_string, input_string);
+    // let input_string = "Cap";
+    // let sql = "SELECT title FROM course WHERE (title CONTAINS \"Cap\") OR (catalog CONTAINS \"Cap\")".to_string();
+    // let mut result = db.query(sql).await.unwrap();
 
-    let mut response = db
-        .query(sql)
-        .await
-        .unwrap();
-    println!("{:?}", response);
-
-    let classes: Option<SearchResult> = response.take(0).unwrap();
-    println!("{:?}", classes);
-
-    Ok(Json(vec!(classes.unwrap())))
-    //Ok(Json(classes))
+    let result = db.select("course").await;
+    println!("{:?}", result);
+    match result {
+        Ok(courses) => Some(courses),
+        Err(_) => None,
+    }
 }
 
-#[get("/get_class_information/<class_id>")]
-async fn get_class_information(class_id: u32) -> Result<Json<ClassInfo>, &'static str> {
-    let db = Surreal::new::<Ws>("127.0.0.1:8001").await.unwrap();
-    db.use_ns("test").use_db("test").await.unwrap();
+//Real API paths
 
-    let sql = "\
-        SELECT * \
-        FROM id\
-    ";
-    let mut response = db.query(sql).bind(("id", class_id)).await.unwrap();
-    println!("{:?}", response);
-    let class: Option<ClassInfo> = response.take(0).unwrap();
-    println!("{:?}", class);
+#[get("/get_search_results/<input_string>")]
+async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
+    let db_result = get_all_courses::<SearchResult>().await;
+    let courses: Vec<SearchResult>;
+    match db_result {
+        Some(classes) => courses = classes,
+        None => return Ok(Json(vec!())),
+    }
+    println!("{:?}", courses);
 
-    Ok(Json(class.unwrap()))
+    let mut result: Vec<SearchResult> = vec!();
+    for class in courses {
+        if class.title.contains(input_string.as_str()) {
+            result.push(class);
+        }
+    }
+
+    Ok(Json(result))
+}
+
+#[get("/get_class_information/<subject>/<catalog>")]
+async fn get_class_information(subject: String, catalog: String) -> Result<Json<ClassInfo>, &'static str> {
+    let db_result = get_all_courses::<ClassInfo>().await;
+    let courses: Vec<ClassInfo>;
+    match db_result {
+        Some(classes) => courses = classes,
+        None => return Err("Given class does not exist"),
+    }
+    println!("{:?}", courses);
+
+    println!("subject: {}, catalog: {}", subject.replace("%20", " "), catalog);
+
+    for class in courses {
+        if class.subject == subject.replace("%20", " ") && class.catalog == catalog {
+            return Ok(Json(class));
+        }
+    }
+    Err("Given class does not exist")
 }
 
 #[post("/validate", format = "application/json", data = "<schedule>")]
