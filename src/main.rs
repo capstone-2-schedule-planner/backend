@@ -82,7 +82,7 @@ struct ReqGroup {
 //Helper Functions
 
 async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: Debug {
-    let db = Surreal::new::<Ws>("127.0.0.1:8001").await.unwrap();
+    let db = Surreal::new::<Ws>("35.222.87.196:8000").await.unwrap();
     db.use_ns("test").use_db("test").await.unwrap();
     db.signin(Root {
         username: "root",
