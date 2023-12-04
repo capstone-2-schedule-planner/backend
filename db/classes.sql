@@ -70409,4 +70409,79 @@
             description: "Designed for the undergraduate student who wishes to engage in research. Not for graduate credit. Not more than six credit hours for graduation credit. Subject and credit to be arranged with the instructor. Prerequisite: Consent of instructor.",
         };
 
-               
+
+--database entries for electives: not actuall classes
+        CREATE course:400000 CONTENT {
+            title: "Laboratory Science Elective",
+            min_units: 4,
+            max_units: 4,
+            subject: "misc",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "An approved science lecture-laboratory course pair totaling at least four credit hours. The laboratory is mandatory in all cases. The approved course pairs are: CHEM 1310 and CHEM 1319; PHYSICS 1505 and PHYSICS 1509; PHYSICS 1605 and PHYSICS 1609; GEOLOGY 1120 and GEOLOGY 1129; BIO SCI 1113 and BIO SCI 1219; BIO SCI 1223 and BIO SCI 1229; BIO SCI 2213 and BIO SCI 2219; BIO SCI 2353 and BIO SCI 2359; BIO SCI 2383 and BIO SCI 2389.",
+        };
+
+
+        CREATE course:400001 CONTENT {
+            title: "Humanities / Social Science Elective",
+            min_units: 9,
+            max_units: 9,
+            subject: "misc",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "Any nine credit hours of social science courses and three credit hours of humanities courses on the approved lists maintained on the computer science website. One course must satisfy the Missouri and U.S. Constitution requirement. COMP SCI 4700 may be counted as a Social Science elective.",
+        };
+
+        CREATE course:400002 CONTENT {
+            title: "Statistics Elective",
+            min_units: 3,
+            max_units: 3,
+            subject: "STAT",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "One of STAT 3113, STAT 3115, STAT 3117, or STAT 5643.",
+        };
+
+
+        CREATE course:400003 CONTENT {
+            title: "Ethics Elective",
+            min_units: 3,
+            max_units: 3,
+            subject: "PHILOS",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "One of PHILOS 3225, PHILOS 3235, PHILOS 4340, or PHILOS 4368.",
+        };
+
+
+        CREATE course:400004 CONTENT {
+            title: "Cmp Sc Elective",
+            min_units: 15,
+            max_units: 15,
+            subject: "COMP SCI",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times.",
+        };
+
+
+        CREATE course:400005 CONTENT {
+            title: "Sci/Eng Elective",
+            min_units: 6,
+            max_units: 6,
+            subject: "misc",
+            catalog: "n/a",
+            req_group: NULL,
+            description: "Any six hours chosen from departments that offer a degree associated with either the Discipline Specific Curricula Committee for Sciences or the Discipline Specific Curricula Committee for Engineering, excluding Computer Science. The following courses are also excluded: all 1000-level MATH courses, all STAT courses below 4000-level, all 11xx-level Physics courses, PHYSICS 2111, PHYSICS 2119, PHYSICS 2135, and PHYSICS 2145.",
+        };
+
+
+        CREATE course:400006 CONTENT {
+            title: "Free Elective",
+            min_units: 8,
+            max_units: 8,
+            subject: "misc",
+            catalog: "misc",
+            req_group: NULL,
+            description: "Courses chosen from any discipline so that 128 hours are completed. These and only these courses may be taken pass/fail and only one course may be taken pass/fail each semester. The following courses are excluded: all 1000-level MATH courses, all STAT courses below 4000-level, all 11xx-level Physics  courses, PHYSICS 2111, PHYSICS 2119, PHYSICS 2135, PHYSICS 2145, any COMP SCI x9xx courses, and the first two years of ROTC. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times.",
+        };
