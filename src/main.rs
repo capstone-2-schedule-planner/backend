@@ -1,26 +1,19 @@
 #[macro_use]
 extern crate rocket;
 
-use std::borrow::Cow;
+use std::io::copy;
+use std::io::stdout;
 use std::fmt::Debug;
-use rocket::serde::json::{Json, json};
-use serde::{Deserialize, Serialize};
-use std::time::{SystemTime, UNIX_EPOCH};
+use std::fs::File;
+use rocket::serde::json::{ Json, from_str };
+use serde::{ Deserialize, Serialize };
+use std::time::{ SystemTime, UNIX_EPOCH };
 use rocket::form::validate::Contains;
-use rocket::http::ext::IntoCollection;
-use rocket::http::private::SmallVec;
+use rocket::fs::{FileServer, relative};
 use serde::de::DeserializeOwned;
 use surrealdb::engine::remote::ws::Ws;
 use surrealdb::opt::auth::Root;
-use surrealdb::sql::{Number, Strand};
 use surrealdb::Surreal;
-use surrealdb::{
-    sql::{self, Data},
-    sql::{Thing, Value},
-};
-use surrealdb::dbs::{ Session, Response };
-use surrealdb::err::Error;
-use surrealdb::kvs::Datastore;
 
 //Data Structs
 
@@ -57,17 +50,27 @@ struct ClassInfo {
     description: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
+struct Class {
+    id: String,
+    title: String,
+    min_units: u32,
+    max_units: u32,
+    subject: String,
+    catalog: String,
+    req_group: Option<u32>,
+    description: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 struct Semester {
-    classes: Vec<u32>,
-    semester: u32,
-    term: String,
+    classes: Vec<Class>,
 }
 
 #[derive(Serialize, Deserialize)]
 struct Schedule {
-    classes: Vec<Semester>,
-    valid: bool,
+    classes: Vec<Vec<Class>>,
+    valid: Option<bool>,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -102,6 +105,23 @@ async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: De
 }
 
 //Real API paths
+
+#[get("/get_partial_schedule/<param>")]
+fn get_partial_schedule(param: &str) -> Result<Json<Schedule>, &'static str> {
+    let file_path: &str;
+    match param {
+        "CS" => { file_path = "./premade_schedules/compsci.json"; },
+        "MATH" => { file_path = "./premade_schedules/math.json"; },
+        _ => return Err("Major is not currently supported")
+    };
+
+    let mut file = File::open(file_path).unwrap();
+    let mut stdout = stdout();
+    let raw_file = &copy(&mut file, &mut stdout).unwrap().to_string();
+    let data: Schedule = from_str(raw_file).unwrap();
+
+    Ok(Json(data))
+}
 
 #[get("/get_search_results/<input_string>")]
 async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
@@ -200,7 +220,11 @@ fn rocket() -> _ {
             data_put,
             validate_schedule,
             get_search_results,
-            get_class_information
+            get_class_information,
+            get_partial_schedule
         ],
+    ).mount(
+        "/partial_schedules",
+        FileServer::from(relative!("/premade_schedules"))
     )
 }

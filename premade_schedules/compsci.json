@@ -1,0 +1,431 @@
+{
+  "classes": [
+    [
+      {
+        "id": 112,
+        "title": "Study & Careers",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "FR ENG",
+        "catalog": "1100",
+        "req_group": "NULL",
+        "description": "Examination of engineering and computer science degree programs available at Missouri S&T and career opportunities. Introduction to non-engineering majors and minors at Missouri S&T. Academic, professional and ethical expectations of the student and professionals. Introduction to campus facilities and resources for assisting in student success"
+      },
+      {
+        "id": 301523,
+        "title": "Computational Solving",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1500",
+        "req_group": "NULL",
+        "description": "This course provides a rigorous introduction to computational problem solving, thinking, and debugging, for those with little-to-no experience in computer science. Language-agnostic foundations focus on pseudo-code, flowcharts, and software-based code tracing, then build to programming in a high-level interpreted language, with a focus on data and modeling."
+      },
+      {
+        "id": 400000,
+        "title": "Laboratory Science Elective",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "An approved science lecture-laboratory course pair totaling at least four credit hours. The laboratory is mandatory in all cases. The approved course pairs are: CHEM 1310 and CHEM 1319; PHYSICS 1505 and PHYSICS 1509; PHYSICS 1605 and PHYSICS 1609; GEOLOGY 1120 and GEOLOGY 1129; BIO SCI 1113 and BIO SCI 1219; BIO SCI 1223 and BIO SCI 1229; BIO SCI 2213 and BIO SCI 2219; BIO SCI 2353 and BIO SCI 2359; BIO SCI 2383 and BIO SCI 2389."
+      },
+      {
+        "id": 890,
+        "title": "Exposition & Argumentatn",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ENGLISH",
+        "catalog": "1120",
+        "req_group": "NULL",
+        "description": "Practice in college level essay writing."
+      },
+      {
+        "id": 1210,
+        "title": "Calculus I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1214",
+        "req_group": 10178,
+        "description": "Introduction to limits, continuity, differentiation, and integration of algebraic and transcendental functions. Applications in physical science and engineering. Credit will be given for only one of Math 1208, 1210, or 1214. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1120 or Math 1140; or by placement exam."
+      }
+    ],
+    [
+      {
+        "id": 531,
+        "title": "Discrete Math For Cmp Sc",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1200",
+        "req_group": 10024,
+        "description": "This course provides a rigorous treatment of topics from discrete mathematics which are essential to computer science. Principal topics include: formal logic (propositional & predicate), set theory, proof techniques, mathematical induction, program correctness, combinatorics, discrete probability, relations, functions, matrices, and graph theory. Prerequisite: A grade of C or better in either Comp Sci 1500 or Comp Sci 1570 and in one of Math 1120, Math 1140, Math 1208, Math 1210, Math 1211, or Math 1214."
+      },
+      {
+        "id": 524,
+        "title": "Intro To C++ Programming",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1570",
+        "req_group": 10712,
+        "description": "Object-Oriented Programming design and development in C++. Emphasis placed on good programming practices. Topics include syntax/semantics, operators, control flow/decision branching, memory management, functions, file I/O, C-strings, arrays, pointers, classes, templates, inheritance, polymorphism, and exception handling. This course is programming intensive. Prerequisites: A grade of C or better in Comp Sci 1500 or in both of Comp Sci 1971 and Comp Sci 1981, and accompanied by Comp Sci 1580."
+      },
+      {
+        "id": 525,
+        "title": "Intro To Programming Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "COMP SCI",
+        "catalog": "1580",
+        "req_group": 10713,
+        "description": "Practical applications of concepts learned in Computer Science 1570. Hands-on instruction in C++ developing, debugging, and testing programming projects. Prerequisite: Accompanied by Comp Sci 1570."
+      },
+      {
+        "id": 1211,
+        "title": "Calculus II",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1215",
+        "req_group": 11494,
+        "description": "Techniques of integration, sequences and series including power series, polar coordinates, polar and parametric equations. Applications in physical science and engineering. Credit will be given for only one of Math 1215 or Math 1221. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1208 or 1214; or a grade of C or better in both Math 1210 and Math 1211; or a grade of  C or better in both Math 1214 and 1211; or a grade of C or better in Math 1214 and successful trigonometry placement."
+      },
+      {
+        "id": 891,
+        "title": "Writing And Research",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ENGLISH",
+        "catalog": "1160",
+        "req_group": 10882,
+        "description": "Practice in techniques of analytical writing and in methods of research. Prerequisite: English 1120."
+      },
+      {
+        "id": 400001,
+        "title": "Humanities / Social Science Elective",
+        "min_units": 9,
+        "max_units": 9,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any nine credit hours of social science courses and three credit hours of humanities courses on the approved lists maintained on the computer science website. One course must satisfy the Missouri and U.S. Constitution requirement. COMP SCI 4700 may be counted as a Social Science elective."
+      }
+    ],
+    [
+      {
+        "id": 530,
+        "title": "Data Structures",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1575",
+        "req_group": 10023,
+        "description": "A continuation of Object-Oriented Programming, with emphasis on the efficient organization of data through Abstract Data Types and Data Structures. Topics include Linked Lists, Vectors, Stacks, Queues, Trees, Hash Tables, Graphs and their use in a variety of algorithms. Recursive programming techniques are also covered. This course is programming intensive. Prerequisite: Grade of C or better in Comp Sci 1570."
+      },
+      {
+        "id": 301341,
+        "title": "Data Structures Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "COMP SCI",
+        "catalog": "1585",
+        "req_group": 11386,
+        "description": "Hands-on instruction in programming development tools such as version control systems, integrated development environments, debuggers, profilers, and event-based programming environments. Exercises will complement the concepts presented in Comp Sci 1575. Prerequisite: Preceded or accompanied by Comp Sci 1575."
+      },
+      {
+        "id": 484,
+        "title": "Intro to Digital Logic",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP ENG",
+        "catalog": "2210",
+        "req_group": 10851,
+        "description": "Examines the core components from which digital systems are designed, constructed, and analyzed. Topics include binary numbers, truth tables, Boolean algebra, Karnaugh maps, combinational logic, digital components, CMOS, programmable logic devices, and sequential circuits. Prerequisites: Accompanied by Comp Eng 2211 for Computer Engineering and Electrical Engineering majors."
+      },
+      {
+        "id": 1506,
+        "title": "Symphonic Band",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "MUSIC",
+        "catalog": "1135",
+        "req_group": "NULL",
+        "description": "Open to all students who play a band instrument. Auditions may be used for placement in ensemble."
+      },
+      {
+        "id": 400001,
+        "title": "Humanities / Social Science Elective",
+        "min_units": 9,
+        "max_units": 9,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any nine credit hours of social science courses and three credit hours of humanities courses on the approved lists maintained on the computer science website. One course must satisfy the Missouri and U.S. Constitution requirement. COMP SCI 4700 may be counted as a Social Science elective."
+      },
+      {
+        "id": 400002,
+        "title": "Statistics Elective",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "STAT",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "One of STAT 3113, STAT 3115, STAT 3117, or STAT 5643."
+      }
+    ],
+    [
+      {
+        "id": 541,
+        "title": "Intro To Operating Syst",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "3800",
+        "req_group": 10029,
+        "description": "This course teaches the concepts, structure, and mechanisms of Operating Systems. Topics include process management, concurrency, synchronization, deadlock, multithreading, memory management, scheduling, and internetworking. Special emphasis is given to Unix and its modern-day derivatives. Prerequisites: A grade of C or better in both Comp Sci 1575 and Comp Eng 2210."
+      },
+      {
+        "id": 554,
+        "title": "Theory of Computer Sci",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "2200",
+        "req_group": 10034,
+        "description": "This course will cover the theoretical underpinnings of computer science. In particular, this course will cover the following topics: basic computability and formal language concepts, regular languages, context free languages, recursively-enumerable languages, and classes P, NP, and NP-completeness. Prerequisite: A grade of C or better in both Comp Sci 1200 and Comp Sci 1575."
+      },
+      {
+        "id": 539,
+        "title": "Algorithms",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "2500",
+        "req_group": 10028,
+        "description": "Students will solve recurrence relations, analyze algorithms for correctness and time/space complexity, apply these analysis techniques to fundamental dynamic programming, greedy, shortest-path, minimal spanning trees, and maximum flow algorithms and validate these analyses through programming. Prerequisite: A grade of C or better in both Comp Sci 1200 and Comp Sci 1575; preceded or accompanied by a grade of C or better in either Math 1208, Math 1211, or Math 1214."
+      },
+      {
+        "id": 489,
+        "title": "Intro Micro Embed Design",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP ENG",
+        "catalog": "3150",
+        "req_group": 10289,
+        "description": "Microcontroller-based digital system design methodology and techniques. Topics include basic machine organization, interface design, and C and assembly language programming for real-time embedded systems. Prerequisites: COMP ENG 2210 and COMP SCI 1570 (or programming equivalent) each with grade of C or better."
+      },
+      {
+        "id": 1638,
+        "title": "Engineering Physics II",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "PHYSICS",
+        "catalog": "2135",
+        "req_group": 11363,
+        "description": "An introduction to electricity, magnetism, and light, with emphasis on topics needed by engineering students. Prerequisites: Physics 1135 or Physics 1111, Math 1221 or Math 1215."
+      }
+    ],
+    [
+      {
+        "id": 538,
+        "title": "File Struc Intro Databas",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "2300",
+        "req_group": 10027,
+        "description": "Course covers major topics in file structures and database systems including techniques for disk access and organization, record and file structures, index structures, sequential file, dense/sparse and secondary indexes, B-trees, range queries, insertion/deletion, hash tables, fundamentals of database systems, the ER model, relational model, algebra and SQL. Prerequisite: A grade of C or better in Comp Sci 1575."
+      },
+      {
+        "id": 564,
+        "title": "Intro. Computer Networks",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "3610",
+        "req_group": 10036,
+        "description": "This course covers general principles of computer networking, focusing primarily on internet protocols. It covers the TCP/IP stack, with the application layer first, moving down through link and physical layers. Topics include network virtualization, security, wireless, and mobile networks, with extensive live protocol analysis. Coursework is project based. Prerequisites: A grade of C or better in Comp Sci 3800."
+      },
+      {
+        "id": 1220,
+        "title": "Linear Algebra I",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3108",
+        "req_group": 10291,
+        "description": "Systems of linear equations, matrices, vector spaces, inner products, linear transformations, determinants, and eigenvalues are studied. Prerequisite: Math 1215 or 1221 or 2222 with a grade of C or better."
+      },
+      {
+        "id": 400001,
+        "title": "Humanities / Social Science Elective",
+        "min_units": 9,
+        "max_units": 9,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any nine credit hours of social science courses and three credit hours of humanities courses on the approved lists maintained on the computer science website. One course must satisfy the Missouri and U.S. Constitution requirement. COMP SCI 4700 may be counted as a Social Science elective."
+      },
+      {
+        "id": 400003,
+        "title": "Ethics Elective",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "PHILOS",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "One of PHILOS 3225, PHILOS 3235, PHILOS 4340, or PHILOS 4368."
+      }
+    ],
+    [
+      {
+        "id": 537,
+        "title": "Prog Lang & Translators",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "3500",
+        "req_group": 10026,
+        "description": "Covers basic design of programming languages, compilers and interpreters. The concepts of syntax, variables, expressions, types, scope, functions, procedures, statements, I/O, exception handling and concurrency are introduced. The manner in which various programming languages handle these concepts is discussed. Prerequisite: A C or better grade in Comp Sci 2200."
+      },
+      {
+        "id": 400004,
+        "title": "Cmp Sc Elective",
+        "min_units": 15,
+        "max_units": 15,
+        "subject": "COMP SCI",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      },
+      {
+        "id": 400004,
+        "title": "Cmp Sc Elective",
+        "min_units": 15,
+        "max_units": 15,
+        "subject": "COMP SCI",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      },
+      {
+        "id": 400005,
+        "title": "Sci/Eng Elective",
+        "min_units": 6,
+        "max_units": 6,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any six hours chosen from departments that offer a degree associated with either the Discipline Specific Curricula Committee for Sciences or the Discipline Specific Curricula Committee for Engineering, excluding Computer Science. The following courses are also excluded: all 1000-level MATH courses, all STAT courses below 4000-level, all 11xx-level Physics courses, PHYSICS 2111, PHYSICS 2119, PHYSICS 2135, and PHYSICS 2145."
+      },
+      {
+        "id": 1760,
+        "title": "Principles Of Speech",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "SP&M S",
+        "catalog": "1185",
+        "req_group": "NULL",
+        "description": "A study of the arts of expression, oral communication, and listening (theory and practice); effective interaction of speech, speaker, listener, and occasion. Prerequisite: Entrance requirements."
+      }
+    ],
+    [
+      {
+        "id": 301525,
+        "title": "SE Capstone I",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "4090",
+        "req_group": 11450,
+        "description": "This is the first course in the Software Engineering Capstone sequence covering the Software Life Cycle. Students will learn about software engineering, and work in teams to spec, design, prototype, implement, test, document, deploy, and maintain a software system. This course is programming intensive, writing emphasized and addresses ethical considerations. Prerequisites: A grade of C or better in all of Comp Sci 2300, Comp Sci 2500, and Comp Sci 3610."
+      },
+      {
+        "id": 300624,
+        "title": "Computer Security",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "4610",
+        "req_group": 10720,
+        "description": "This course covers principles of threat-modeling, trust, and security policies. Topics include cryptography, reverse engineering, software security, malware analysis, authentication, access controls, operating systems hardening, virtualization, database security, and network security. This class is programming intensive and project based, with case-analyses. Prerequisites: A grade of C or better in Comp Sci 3610."
+      },
+      {
+        "id": 400004,
+        "title": "Cmp Sc Elective",
+        "min_units": 15,
+        "max_units": 15,
+        "subject": "COMP SCI",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      },
+      {
+        "id": 400004,
+        "title": "Cmp Sc Elective",
+        "min_units": 15,
+        "max_units": 15,
+        "subject": "COMP SCI",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      },
+      {
+        "id": 400005,
+        "title": "Sci/Eng Elective",
+        "min_units": 6,
+        "max_units": 6,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any six hours chosen from departments that offer a degree associated with either the Discipline Specific Curricula Committee for Sciences or the Discipline Specific Curricula Committee for Engineering, excluding Computer Science. The following courses are also excluded: all 1000-level MATH courses, all STAT courses below 4000-level, all 11xx-level Physics courses, PHYSICS 2111, PHYSICS 2119, PHYSICS 2135, and PHYSICS 2145."
+      }
+    ],
+    [
+      {
+        "id": 301526,
+        "title": "SE Capstone II",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "4091",
+        "req_group": 11451,
+        "description": "This is the second course in the Software Engineering Capstone sequence covering the Software Life Cycle. Students will learn about software engineering, and work in teams to spec, design, prototype, implement, test, document, deploy and maintain a software system. This course is programming intensive, writing emphasized and addresses ethical considerations. Prerequisites: A grade of C or better in both Comp Sci 4090 and Comp Sci 4610, and proceeded or accompanied by one of Philos 3225, Philos 3235, Philos 4340 or Philos 4368."
+      },
+      {
+        "id": 400004,
+        "title": "Cmp Sc Elective",
+        "min_units": 15,
+        "max_units": 15,
+        "subject": "COMP SCI",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Fifteen hours of elective COMP SCI courses excluding COMP SCI 2002, COMP SCI 4700, COMP SCI 2001 - Domain Exploration and Innovation Methods, COMP SCI 3001 - Skill Development for Entrepreneurs and Innovators, COMP SCI 4001 - Advanced Domain Exploration and Innovation Methods, COMP SCI 4001 - Interpersonal Dynamics for Entrepreneurs and Innovators, and all COMP SCI x9xx courses. At least nine hours must be 5000-level or higher. At least nine hours must be lecture courses. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      },
+      {
+        "id": 400001,
+        "title": "Humanities / Social Science Elective",
+        "min_units": 9,
+        "max_units": 9,
+        "subject": "misc",
+        "catalog": "n/a",
+        "req_group": "NULL",
+        "description": "Any nine credit hours of social science courses and three credit hours of humanities courses on the approved lists maintained on the computer science website. One course must satisfy the Missouri and U.S. Constitution requirement. COMP SCI 4700 may be counted as a Social Science elective."
+      },
+      {
+        "id": 400006,
+        "title": "Free Elective",
+        "min_units": 8,
+        "max_units": 8,
+        "subject": "misc",
+        "catalog": "misc",
+        "req_group": "NULL",
+        "description": "Courses chosen from any discipline so that 128 hours are completed. These and only these courses may be taken pass/fail and only one course may be taken pass/fail each semester. The following courses are excluded: all 1000-level MATH courses, all STAT courses below 4000-level, all 11xx-level Physics  courses, PHYSICS 2111, PHYSICS 2119, PHYSICS 2135, PHYSICS 2145, any COMP SCI x9xx courses, and the first two years of ROTC. COMP SCI 4010 can be counted as Computer Science Elective or Free Elective, limited to three times."
+      }
+    ]
+  ],
+  "valid": false
+}
