@@ -1,0 +1,243 @@
+{
+  "classes": [
+    [
+      {
+        "id": 112,
+        "title": "Study & Careers",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "FR ENG",
+        "catalog": "1100",
+        "req_group": null,
+        "description": "Examination of engineering and computer science degree programs available at Missouri S&T and career opportunities. Introduction to non-engineering majors and minors at Missouri S&T. Academic, professional and ethical expectations of the student and professionals. Introduction to campus facilities and resources for assisting in student success"
+      },
+      {
+        "id": 308,
+        "title": "General Chemistry I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "CHEM",
+        "catalog": "1310",
+        "req_group": null,
+        "description": "A comprehensive study of general chemistry concepts with focus on the atomic and molecular nature of matter. Fundamental scientific principles will be applied to solve chemistry problems and describe macroscopic physical properties. Prerequisite: Entrance requirements."
+      },
+      {
+        "id": 311,
+        "title": "Intro/Lab Safety&Haz Mtr",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "CHEM",
+        "catalog": "1100",
+        "req_group": null,
+        "description": "A systematic study of safe laboratory operations and pertinent regulations of state and federal agencies."
+      },
+      {
+        "id": 309,
+        "title": "General Chemistry Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "CHEM",
+        "catalog": "1319",
+        "req_group": 10470,
+        "description": "The laboratory work accompanying general chemistry consists of experiments designed to supplement lectures in Chem 1310. Prerequisite: Preceded or accompanied by both Chem 1310 and Chem 1100."
+      },
+      {
+        "id": 301523,
+        "title": "Computational Solving",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1500",
+        "req_group": null,
+        "description": "This course provides a rigorous introduction to computational problem solving, thinking, and debugging, for those with little-to-no experience in computer science. Language-agnostic foundations focus on pseudo-code, flowcharts, and software-based code tracing, then build to programming in a high-level interpreted language, with a focus on data and modeling."
+      },
+      {
+        "id": 1210,
+        "title": "Calculus I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1214",
+        "req_group": 10178,
+        "description": "Introduction to limits, continuity, differentiation, and integration of algebraic and transcendental functions. Applications in physical science and engineering. Credit will be given for only one of Math 1208, 1210, or 1214. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1120 or Math 1140; or by placement exam."
+      },
+      {
+        "id": 1689,
+        "title": "American Government",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "POL SCI",
+        "catalog": "1200",
+        "req_group": null,
+        "description": "National, state and local government in the United States with special emphasis on political behavior and the institutions that determine and execute public policy. Topics include basic structure of American government, (i.e., democracy, the Constitution, the branches of government), as well as citizenship, parties, pressure groups and American economic policy. The course views government in its relation to its people, its services and protection."
+      }
+    ],
+    [
+      {
+        "id": 524,
+        "title": "Intro To C++ Programming",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1570",
+        "req_group": 10712,
+        "description": "Object-Oriented Programming design and development in C++. Emphasis placed on good programming practices. Topics include syntax/semantics, operators, control flow/decision branching, memory management, functions, file I/O, C-strings, arrays, pointers, classes, templates, inheritance, polymorphism, and exception handling. This course is programming intensive. Prerequisites: A grade of C or better in Comp Sci 1500 or in both of Comp Sci 1971 and Comp Sci 1981, and accompanied by Comp Sci 1580."
+      },
+      {
+        "id": 525,
+        "title": "Intro To Programming Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "COMP SCI",
+        "catalog": "1580",
+        "req_group": 10713,
+        "description": "Practical applications of concepts learned in Computer Science 1570. Hands-on instruction in C++ developing, debugging, and testing programming projects. Prerequisite: Accompanied by Comp Sci 1570."
+      },
+      {
+        "id": 890,
+        "title": "Exposition & Argumentatn",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ENGLISH",
+        "catalog": "1120",
+        "req_group": null,
+        "description": "Practice in college level essay writing."
+      },
+      {
+        "id": 1211,
+        "title": "Calculus II",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1215",
+        "req_group": 11494,
+        "description": "Techniques of integration, sequences and series including power series, polar coordinates, polar and parametric equations. Applications in physical science and engineering. Credit will be given for only one of Math 1215 or Math 1221. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1208 or 1214; or a grade of C or better in both Math 1210 and Math 1211; or a grade of  C or better in both Math 1214 and 1211; or a grade of C or better in Math 1214 and successful trigonometry placement."
+      },
+      {
+        "id": 1637,
+        "title": "Engineering Physics I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "PHYSICS",
+        "catalog": "1135",
+        "req_group": 10021,
+        "description": "An introduction to mechanics, with an emphasis on topics needed by engineering students, including kinematics, dynamics, statics, and energetics. Prerequisite: A grade of C or better in Math 1208 or Math 1211 or Math 1214."
+      }
+    ],
+    [
+      {
+        "id": 484,
+        "title": "Intro to Digital Logic",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP ENG",
+        "catalog": "2210",
+        "req_group": 10851,
+        "description": "Examines the core components from which digital systems are designed, constructed, and analyzed. Topics include binary numbers, truth tables, Boolean algebra, Karnaugh maps, combinational logic, digital components, CMOS, programmable logic devices, and sequential circuits. Prerequisites: Accompanied by Comp Eng 2211 for Computer Engineering and Electrical Engineering majors."
+      },
+      {
+        "id": 531,
+        "title": "Discrete Math For Cmp Sc",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1200",
+        "req_group": 10024,
+        "description": "This course provides a rigorous treatment of topics from discrete mathematics which are essential to computer science. Principal topics include: formal logic (propositional & predicate), set theory, proof techniques, mathematical induction, program correctness, combinatorics, discrete probability, relations, functions, matrices, and graph theory. Prerequisite: A grade of C or better in either Comp Sci 1500 or Comp Sci 1570 and in one of Math 1120, Math 1140, Math 1208, Math 1210, Math 1211, or Math 1214."
+      },
+      {
+        "id": 530,
+        "title": "Data Structures",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1575",
+        "req_group": 10023,
+        "description": "A continuation of Object-Oriented Programming, with emphasis on the efficient organization of data through Abstract Data Types and Data Structures. Topics include Linked Lists, Vectors, Stacks, Queues, Trees, Hash Tables, Graphs and their use in a variety of algorithms. Recursive programming techniques are also covered. This course is programming intensive. Prerequisite: Grade of C or better in Comp Sci 1570."
+      },
+      {
+        "id": 301341,
+        "title": "Data Structures Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "COMP SCI",
+        "catalog": "1585",
+        "req_group": 11386,
+        "description": "Hands-on instruction in programming development tools such as version control systems, integrated development environments, debuggers, profilers, and event-based programming environments. Exercises will complement the concepts presented in Comp Sci 1575. Prerequisite: Preceded or accompanied by Comp Sci 1575."
+      },
+      {
+        "id": 1213,
+        "title": "Calculus III",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "2222",
+        "req_group": 10020,
+        "description": "An introduction to multivariable calculus. Vector valued functions, curves and surfaces in two and three dimensions, partial differentiation, multiple integration, line and surface integrals, the major theorems of vector calculus, and applications of these ideas are studied. Prerequisites: A grade of C or better in either Math 1215 or Math 1221."
+      },
+      {
+        "id": 1220,
+        "title": "Linear Algebra I",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3108",
+        "req_group": 10291,
+        "description": "Systems of linear equations, matrices, vector spaces, inner products, linear transformations, determinants, and eigenvalues are studied. Prerequisite: Math 1215 or 1221 or 2222 with a grade of C or better."
+      }
+    ],
+    [
+      {
+        "id": 489,
+        "title": "Intro Micro Embed Design",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP ENG",
+        "catalog": "3150",
+        "req_group": 10289,
+        "description": "Microcontroller-based digital system design methodology and techniques. Topics include basic machine organization, interface design, and C and assembly language programming for real-time embedded systems. Prerequisites: COMP ENG 2210 and COMP SCI 1570 (or programming equivalent) each with grade of C or better."
+      },
+      {
+        "id": 554,
+        "title": "Theory of Computer Sci",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "2200",
+        "req_group": 10034,
+        "description": "This course will cover the theoretical underpinnings of computer science. In particular, this course will cover the following topics: basic computability and formal language concepts, regular languages, context free languages, recursively-enumerable languages, and classes P, NP, and NP-completeness. Prerequisite: A grade of C or better in both Comp Sci 1200 and Comp Sci 1575."
+      },
+      {
+        "id": 595,
+        "title": "Prin Of Microeconomics",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ECON",
+        "catalog": "1100",
+        "req_group": null,
+        "description": "An examination of how resources and products are priced and how income is distributed within various types of market structures."
+      },
+      {
+        "id": 1219,
+        "title": "Elem Differen Equations",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3304",
+        "req_group": 10180,
+        "description": "First order differential equations and linear differential equations of higher order are studied. The Laplace transform and systems of linear equations as well as selected physical applications are covered. Credit will not be given for both Math 3329 and Math 3304. Prerequisite: A grade of C or better in Math 1215."
+      },
+      {
+        "id": 1778,
+        "title": "Intro To Prob/Stat",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "STAT",
+        "catalog": "3117",
+        "req_group": 10948,
+        "description": "Introduction to probability, distribution theory, statistical inference, with applications to physical and engineering sciences. Probability, probability and joint distributions, functions of random variables, system reliability, point and interval estimation, testing hypotheses, regression analysis. Credit will be given for only one of Stat 3111, 3113, 3115, or 3117. Prerequisite: Math 2222 with a grade of C or better."
+      }
+    ]
+  ],
+  "valid": true
+}
