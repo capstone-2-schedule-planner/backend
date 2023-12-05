@@ -1,0 +1,217 @@
+{
+  "classes": [
+    [
+      {
+        "id": 1203,
+        "title": "Introduction To Math",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "MATH",
+        "catalog": "1101",
+        "req_group": "NULL",
+        "description": "Introduction to the department, program of study, methods of study, and an introduction of the various areas of mathematics. Required of fall semester freshman mathematics majors."
+      },
+      {
+        "id": 1210,
+        "title": "Calculus I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1214",
+        "req_group": 10178,
+        "description": "Introduction to limits, continuity, differentiation, and integration of algebraic and transcendental functions. Applications in physical science and engineering. Credit will be given for only one of Math 1208, 1210, or 1214. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1120 or Math 1140; or by placement exam."
+      },
+      {
+        "id": 311,
+        "title": "Intro/Lab Safety&Haz Mtr",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "CHEM",
+        "catalog": "1100",
+        "req_group": "NULL",
+        "description": "A systematic study of safe laboratory operations and pertinent regulations of state and federal agencies."
+      },
+      {
+        "id": 890,
+        "title": "Exposition & Argumentatn",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ENGLISH",
+        "catalog": "1120",
+        "req_group": "NULL",
+        "description": "Practice in college level essay writing."
+      },
+      {
+        "id": 595,
+        "title": "Prin Of Microeconomics",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "ECON",
+        "catalog": "1100",
+        "req_group": "NULL",
+        "description": "An examination of how resources and products are priced and how income is distributed within various types of market structures."
+      }
+    ],
+    [
+      {
+        "id": 1211,
+        "title": "Calculus II",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "1215",
+        "req_group": 11494,
+        "description": "Techniques of integration, sequences and series including power series, polar coordinates, polar and parametric equations. Applications in physical science and engineering. Credit will be given for only one of Math 1215 or Math 1221. Prerequisites: A grade of C or better in both Math 1160 and one of Math 1208 or 1214; or a grade of C or better in both Math 1210 and Math 1211; or a grade of  C or better in both Math 1214 and 1211; or a grade of C or better in Math 1214 and successful trigonometry placement."
+      },
+      {
+        "id": 301523,
+        "title": "Computational Solving",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1500",
+        "req_group": "NULL",
+        "description": "This course provides a rigorous introduction to computational problem solving, thinking, and debugging, for those with little-to-no experience in computer science. Language-agnostic foundations focus on pseudo-code, flowcharts, and software-based code tracing, then build to programming in a high-level interpreted language, with a focus on data and modeling."
+      },
+      {
+        "id": 891,
+        "title": "Writing And Research",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "ENGLISH",
+        "catalog": "1160",
+        "req_group": 10882,
+        "description": "Practice in techniques of analytical writing and in methods of research. Prerequisite: English 1120."
+      }
+    ],
+    [
+      {
+        "id": 1213,
+        "title": "Calculus III",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "MATH",
+        "catalog": "2222",
+        "req_group": 10020,
+        "description": "Practice in techniques of analytical writing and in methods of research. Prerequisite: English 1120."
+      },
+      {
+        "id": 1220,
+        "title": "Linear Algebra I",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3108",
+        "req_group": 10291,
+        "description": "Systems of linear equations, matrices, vector spaces, inner products, linear transformations, determinants, and eigenvalues are studied. Prerequisite: Math 1215 or 1221 or 2222 with a grade of C or better."
+      },
+      {
+        "id": 524,
+        "title": "Intro To C++ Programming",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "COMP SCI",
+        "catalog": "1570",
+        "req_group": 10712,
+        "description": "Object-Oriented Programming design and development in C++. Emphasis placed on good programming practices. Topics include syntax/semantics, operators, control flow/decision branching, memory management, functions, file I/O, C-strings, arrays, pointers, classes, templates, inheritance, polymorphism, and exception handling. This course is programming intensive. Prerequisites: A grade of C or better in Comp Sci 1500 or in both of Comp Sci 1971 and Comp Sci 1981, and accompanied by Comp Sci 1580."
+      },
+      {
+        "id": 525,
+        "title": "Intro To Programming Lab",
+        "min_units": 1,
+        "max_units": 1,
+        "subject": "COMP SCI",
+        "catalog": "1580",
+        "req_group": 10713,
+        "description": "Practical applications of concepts learned in Computer Science 1570. Hands-on instruction in C++ developing, debugging, and testing programming projects. Prerequisite: Accompanied by Comp Sci 1570."
+      },
+      {
+        "id": 1637,
+        "title": "Engineering Physics I",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "PHYSICS",
+        "catalog": "1135",
+        "req_group": 10021,
+        "description": "An introduction to mechanics, with an emphasis on topics needed by engineering students, including kinematics, dynamics, statics, and energetics. Prerequisite: A grade of C or better in Math 1208 or Math 1211 or Math 1214."
+      }
+    ],
+    [
+      {
+        "id": 1219,
+        "title": "Elem Differen Equations",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3304",
+        "req_group": 10180,
+        "description": "First order differential equations and linear differential equations of higher order are studied. The Laplace transform and systems of linear equations as well as selected physical applications are covered. Credit will not be given for both Math 3329 and Math 3304. Prerequisite: A grade of C or better in Math 1215."
+      },
+      {
+        "id": 1221,
+        "title": "Foundations Of Math",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "3109",
+        "req_group": 10753,
+        "description": "Introduction to mathematical reasoning through an axiomatic development of mathematical systems. Strong emphasis is placed on learning to understand what constitutes a sound mathematical argument. Communication, both written and spoken, is emphasized. Prerequisite: Math 1215 or 1221 with a grade of C or better."
+      },
+      {
+        "id": 1638,
+        "title": "Engineering Physics II",
+        "min_units": 4,
+        "max_units": 4,
+        "subject": "PHYSICS",
+        "catalog": "2135",
+        "req_group": 11363,
+        "description": "An introduction to electricity, magnetism, and light, with emphasis on topics needed by engineering students. Prerequisites: Physics 1135 or Physics 1111, Math 1221 or Math 1215."
+      },
+      {
+        "id": 1778,
+        "title": "Intro To Prob/Stat",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "STAT",
+        "catalog": "3117",
+        "req_group": 10948,
+        "description": "Introduction to probability, distribution theory, statistical inference, with applications to physical and engineering sciences. Probability, probability and joint distributions, functions of random variables, system reliability, point and interval estimation, testing hypotheses, regression analysis. Credit will be given for only one of Stat 3111, 3113, 3115, or 3117. Prerequisite: Math 2222 with a grade of C or better."
+      }
+    ],
+    [
+      {
+        "id": 1233,
+        "title": "Advanced Calculus I",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "4209",
+        "req_group": 10759,
+        "description": "Completeness of the set of real numbers, sequences and series of real numbers, limits, continuity and differentiability, uniform convergence, Taylor series, Heine-Borel theorem, Riemann integral, fundamental theorem of calculus, Cauchy-Riemann integral. Prerequisite: Math 2222 and Math 3109, or a 4000-level or higher mathematics course, or graduate standing."
+      },
+      {
+        "id": 1760,
+        "title": "Principles Of Speech",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "SP&M S",
+        "catalog": "1185",
+        "req_group": "NULL",
+        "description": "A study of the arts of expression, oral communication, and listening (theory and practice); effective interaction of speech, speaker, listener, and occasion. Prerequisite: Entrance requirements."
+      }
+    ],
+    [
+      {
+        "id": 1234,
+        "title": "Advanced Calculus II",
+        "min_units": 3,
+        "max_units": 3,
+        "subject": "MATH",
+        "catalog": "4211",
+        "req_group": 10760,
+        "description": "Euclidean n-space, differentiation and integration of scalar functions of several variables, maxima and minima theory, change of variables, differentiation and integration of vector functions of several variables, Divergence theorem, Stokes' theorem. Prerequisite: Math 4209."
+      }
+    ]
+  ],
+  "valid": true
+}
