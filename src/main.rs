@@ -1,17 +1,14 @@
 #[macro_use]
 extern crate rocket;
 
-use std::io::copy;
-use std::io::stdout;
 use std::fmt::Debug;
-use std::fs::File;
-use rocket::serde::json::{ Json, from_str };
+use rocket::serde::json::Json;
 use serde::{ Deserialize, Serialize };
 use std::time::{ SystemTime, UNIX_EPOCH };
 use rocket::form::validate::Contains;
-use rocket::fs::{FileServer, relative};
+use rocket::fs::{ FileServer, relative };
 use serde::de::DeserializeOwned;
-use surrealdb::engine::remote::ws::Ws;
+use surrealdb::engine::remote::ws::{Client, Ws};
 use surrealdb::opt::auth::Root;
 use surrealdb::Surreal;
 
@@ -52,7 +49,7 @@ struct ClassInfo {
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Class {
-    id: String,
+    id: u32,
     title: String,
     min_units: u32,
     max_units: u32,
@@ -82,6 +79,12 @@ struct ReqGroup {
     union: bool,
 }
 
+#[derive(Serialize, Deserialize)]
+struct Requisite {
+    course_id: Option<u32>,
+    description: String,
+}
+
 //Helper Functions
 
 async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: Debug {
@@ -104,24 +107,28 @@ async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: De
     }
 }
 
-//Real API paths
+async fn are_prerequisites_satisfied(db: &Surreal<Client>, class_id: &u32, schedule: &Schedule) -> bool {
+    let req_group_sql = format!("SELECT req_group FROM course WHERE id = course:{}", class_id);
+    let course_query: Option<Class> = db.select(("course", class_id.to_string())).await.unwrap();
 
-#[get("/get_partial_schedule/<param>")]
-fn get_partial_schedule(param: &str) -> Result<Json<Schedule>, &'static str> {
-    let file_path: &str;
-    match param {
-        "CS" => { file_path = "./premade_schedules/compsci.json"; },
-        "MATH" => { file_path = "./premade_schedules/math.json"; },
-        _ => return Err("Major is not currently supported")
+    let course = match course_query {
+        Some(x) => x,
+        None => return false
+    };
+    let req = match course.req_group {
+        Some(x) => db.select(("requisite", x.to_string())).await.unwrap().unwrap(),
+        None => return true
     };
 
-    let mut file = File::open(file_path).unwrap();
-    let mut stdout = stdout();
-    let raw_file = &copy(&mut file, &mut stdout).unwrap().to_string();
-    let data: Schedule = from_str(raw_file).unwrap();
+    // TODO: Parse the requirements to form logic tree
 
-    Ok(Json(data))
+    let result: bool = false;
+    // TODO: Check if logic tree is satisfied
+
+    result
 }
+
+//Real API paths
 
 #[get("/get_search_results/<input_string>")]
 async fn get_search_results(input_string: String) -> Result<Json<Vec<SearchResult>>, &'static str> {
@@ -164,48 +171,59 @@ async fn get_class_information(subject: String, catalog: String) -> Result<Json<
 }
 
 #[post("/validate", format = "application/json", data = "<schedule>")]
-async fn validate_schedule(schedule: Json<Schedule>) -> Result<Json<bool>, &'static str> {
-    // TODO: Connect to database
+async fn validate_schedule(schedule: Json<Schedule>) -> Result<Json<u32>, &'static str> {
+    let db = Surreal::new::<Ws>("35.222.87.196:8000").await.unwrap();
+    db.use_ns("test").use_db("test").await.unwrap();
+    db.signin(Root {
+        username: "root",
+        password: "root",
+    }).await.unwrap();
 
-    // TODO: For each class in the schedule, ensure that all prereqs were taken before it
+    let schedule = schedule.into_inner();
+    for semester in &schedule.classes {
+        for class in semester.iter() {
+            if !are_prerequisites_satisfied(&db, &class.id, &schedule).await {
+                return Ok(Json(class.id));
+            }
+        }
+    }
 
-    // TODO: Return the result
-
-    todo!()
+    // All classes in the schedule have satisfied prerequisites
+    Ok(Json(0))
 }
 
 // Example API paths
 
-#[put("/data/<class_name>")] 
-fn data_put(class_name: String) -> Option<String> {
-    Some("Updating entire record for: ".to_owned() + &*class_name)
-}
-
-#[patch("/data/<class_number>")]
-fn data_patch(class_number: i32) -> Option<String> {
-    Some("New class_number will be: ".to_owned() + &*(class_number + 2).to_string())
-}
-
-#[delete("/data/<class_name>")]
-fn data_delete(class_name: String) -> Option<String> {
-    Some("Deleting class: ".to_owned() + &*class_name)
-}
-
-#[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
-}
-
-#[get("/time/now")]
-fn get_time() -> Option<String> {
-    Some(
-        SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .unwrap()
-            .as_secs()
-            .to_string(),
-    )
-}
+// #[put("/data/<class_name>")]
+// fn data_put(class_name: String) -> Option<String> {
+//     Some("Updating entire record for: ".to_owned() + &*class_name)
+// }
+//
+// #[patch("/data/<class_number>")]
+// fn data_patch(class_number: i32) -> Option<String> {
+//     Some("New class_number will be: ".to_owned() + &*(class_number + 2).to_string())
+// }
+//
+// #[delete("/data/<class_name>")]
+// fn data_delete(class_name: String) -> Option<String> {
+//     Some("Deleting class: ".to_owned() + &*class_name)
+// }
+//
+// #[get("/")]
+// fn index() -> &'static str {
+//     "Hello, world!"
+// }
+//
+// #[get("/time/now")]
+// fn get_time() -> Option<String> {
+//     Some(
+//         SystemTime::now()
+//             .duration_since(UNIX_EPOCH)
+//             .unwrap()
+//             .as_secs()
+//             .to_string(),
+//     )
+// }
 
 //Launching the API and setting the routes being used
 #[launch]
@@ -213,15 +231,14 @@ fn rocket() -> _ {
     rocket::build().mount(
         "/",
         routes![
-            index,
-            get_time,
-            data_delete,
-            data_patch,
-            data_put,
+            // index,
+            // get_time,
+            // data_delete,
+            // data_patch,
+            // data_put,
             validate_schedule,
             get_search_results,
             get_class_information,
-            get_partial_schedule
         ],
     ).mount(
         "/partial_schedules",
