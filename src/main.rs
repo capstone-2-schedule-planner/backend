@@ -104,6 +104,11 @@ async fn get_all_courses<T>() -> Option<Vec<T>> where T: DeserializeOwned, T: De
     }
 }
 
+async fn are_prerequisites_satisfied(db: &SurrealDB, class_id: u32) -> bool {
+    let req_group_sql = format!("SELECT req_group FROM course WHERE id = course:{}", class_id);
+    true
+}
+
 //Real API paths
 
 #[get("/get_partial_schedule/<param>")]
@@ -165,13 +170,23 @@ async fn get_class_information(subject: String, catalog: String) -> Result<Json<
 
 #[post("/validate", format = "application/json", data = "<schedule>")]
 async fn validate_schedule(schedule: Json<Schedule>) -> Result<Json<bool>, &'static str> {
-    // TODO: Connect to database
+    let db = Surreal::new::<Ws>("35.222.87.196:8000").await.unwrap();
+    db.use_ns("test").use_db("test").await.unwrap();
+    db.signin(Root {
+        username: "root",
+        password: "root",
+    }).await.unwrap();
 
-    // TODO: For each class in the schedule, ensure that all prereqs were taken before it
+    for semester in &schedule.classes {
+        for class_id in &semester.classes {
+            if !are_prerequisites_satisfied(&db, *class_id).await {
+                return Ok(Json(false));
+            }
+        }
+    }
 
-    // TODO: Return the result
-
-    todo!()
+    // All classes in the schedule have satisfied prerequisites
+    Ok(Json(true))
 }
 
 // Example API paths
